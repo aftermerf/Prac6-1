@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Тестування</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .question {
+      margin-bottom: 10px;
+    }
+
+    .answer {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="question">
+    <h3>Тестування логічної операції І-НЕ</h3>
+    <p>Заповніть таблицю істинності для логічного елемента І-НЕ:</p>
+    <table>
+      <tr>
+        <th>Вхід 1</th>
+        <th>Результат</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="answer">
+    <h3>Ваші відповіді:</h3>
+    <table>
+      <tr>
+        <th>Вхід 1</th>
+        <th>Результат</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="input1"></td>
+        <td><input type="checkbox" id="output1"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="input2"></td>
+        <td><input type="checkbox" id="output2"></td>
+      </tr>
+    </table>
+  </div>
+
+  <button onclick="checkAnswers()">Перевірити</button>
+
+  <script>
+    function checkAnswers() {
+      var input1 = document.getElementById("input1").checked;
+      var input2 = document.getElementById("input2").checked;
+      var output1 = document.getElementById("output1").checked;
+      var output2 = document.getElementById("output2").checked;
+
+      var expectedOutput1 = !input1;
+      var expectedOutput2 = !input2;
+
+      if (output1 === expectedOutput1 && output2 === expectedOutput2) {
+        alert("Відповіді правильні!");
+      } else {
+        alert("Відповіді не правильні. Спробуйте ще раз.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Тестування</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .question {
+      margin-bottom: 10px;
+    }
+
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .option {
+      margin-bottom: 5px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="question">
+    <h3>Хто сказав му-му?</h3>
+    <form id="quizForm">
+      <ul class="options">
+        <li class="option">
+          <input type="radio" id="option1" name="answer" value="cow">
+          <label for="option1">Корова</label>
+        </li>
+        <li class="option">
+          <input type="radio" id="option2" name="answer" value="cat">
+          <label for="option2">Кіт</label>
+        </li>
+        <li class="option">
+          <input type="radio" id="option3" name="answer" value="dog">
+          <label for="option3">Собака</label>
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  <button onclick="checkAnswer()">Перевірити</button>
+
+  <script>
+    function checkAnswer() {
+      var selectedOption = document.querySelector('input[name="answer"]:checked');
+
+      if (selectedOption) {
+        var answer = selectedOption.value;
+
+        if (answer === "cow") {
+          alert("Відповідь правильна!");
+        } else {
+          alert("Відповідь не правильна. Спробуйте ще раз.");
+        }
+      } else {
+        alert("Будь ласка, виберіть відповідь.");
+      }
+    }
+  </script>
+</body>
+</html>
