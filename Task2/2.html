@@ -15,6 +15,26 @@
       margin-bottom: 10px;
     }
 
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+
     button {
       padding: 10px 20px;
       font-size: 16px;
@@ -31,18 +51,31 @@
 </head>
 <body>
   <div class="question">
-    <h3>Тестування логічної операції І-НЕ</h3>
-    <p>Заповніть таблицю істинності для логічного елемента І-НЕ:</p>
+    <h3>Тестування логічної операції "виключаюче або не"</h3>
+    <p>Заповніть таблицю істинності для логічного елемента "виключаюче або не":</p>
     <table>
       <tr>
         <th>Вхід 1</th>
+        <th>Вхід 2</th>
         <th>Результат</th>
       </tr>
       <tr>
         <td>0</td>
+        <td>0</td>
         <td></td>
       </tr>
       <tr>
+        <td>0</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
         <td>1</td>
         <td></td>
       </tr>
@@ -54,15 +87,13 @@
     <table>
       <tr>
         <th>Вхід 1</th>
+        <th>Вхід 2</th>
         <th>Результат</th>
       </tr>
       <tr>
         <td><input type="checkbox" id="input1"></td>
-        <td><input type="checkbox" id="output1"></td>
-      </tr>
-      <tr>
         <td><input type="checkbox" id="input2"></td>
-        <td><input type="checkbox" id="output2"></td>
+        <td><input type="checkbox" id="output1"></td>
       </tr>
     </table>
   </div>
@@ -74,15 +105,13 @@
       var input1 = document.getElementById("input1").checked;
       var input2 = document.getElementById("input2").checked;
       var output1 = document.getElementById("output1").checked;
-      var output2 = document.getElementById("output2").checked;
 
-      var expectedOutput1 = !input1;
-      var expectedOutput2 = !input2;
+      var expectedOutput1 = !(input1 ^ input2);
 
-      if (output1 === expectedOutput1 && output2 === expectedOutput2) {
-        alert("Відповіді правильні!");
+      if (output1 === expectedOutput1) {
+        alert("Відповідь правильна!");
       } else {
-        alert("Відповіді не правильні. Спробуйте ще раз.");
+        alert("Відповідь не правильна. Спробуйте ще раз.");
       }
     }
   </script>
